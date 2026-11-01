@@ -1,93 +1,100 @@
-# Network Sniffer
+# CodeAlpha Secure Coding Review
 
-## Overview
-Network Sniffer is a cybersecurity project developed using Python and Scapy. The main purpose of this tool is to capture and analyze network packets passing through a network interface.
+## Project Overview
 
-This project demonstrates the basic concept of network traffic analysis and packet inspection, which is an important skill in cybersecurity, penetration testing, and network security monitoring.
+This project demonstrates a secure coding review process for a Python application.
 
-## Description
-The tool captures live network packets and extracts useful information from them, including packet number, timestamp, and communication protocol.
+The goal of this project is to identify security vulnerabilities in source code, analyze their impact, and apply secure coding practices to fix them.
 
-It helps in understanding how data moves across networks and provides a practical introduction to concepts such as packet analysis, network protocols, and traffic monitoring.
+---
 
-![Sniffer output](output.png)
+## Objectives
 
-## Features
-- Capture live network packets from the network interface.
-- Analyze captured packets using Scapy.
-- Identify common network protocols such as:
-  - TCP
-  - UDP
-  - ICMP
-- Display packet information in the terminal.
-- Record captured packet details into a text file for later analysis.
-- Add timestamps to captured packets for tracking network activity.
+- Perform manual code review.
+- Use Bandit Static Code Analyzer to identify vulnerabilities.
+- Document security findings.
+- Apply remediation techniques.
+- Improve application security.
 
-## How It Works
-The tool uses the Scapy library to listen for network traffic. When a packet is detected, the program analyzes the packet structure and extracts important information.
-
-The captured data includes:
-- Packet number
-- Capture time
-- Protocol type
-- Basic packet details
-
-After analysis, the information is displayed and saved for future review.
+---
 
 ## Technologies Used
-- Python
-- Scapy Library
-- Kali Linux
 
-## Installation
+- Python 3
+- Bandit (SAST Tool)
+- Linux (Kali)
 
-Install the required dependency:
-
-```bash
-pip install scapy
-```
-
-## Usage
-
-Run the script:
-
-```bash
-python network_sniffer.py
-```
-
-The program will start capturing packets and displaying the collected information.
-
-## Security Purpose
-Network sniffing is an important concept in cybersecurity. Security professionals use packet analysis tools to:
-
-- Monitor network traffic
-- Detect suspicious activities
-- Troubleshoot network problems
-- Understand communication between systems
-- Support security investigations
-
-This project was created for educational purposes to practice network security concepts.
+---
 
 ## Project Structure
-
 ```
-Network-Sniffer/
-│
-├── network_sniffer.py
-├── packets.txt
+CodeAlpha_SecureCodingReview/
+
+├── vulnerable_app.py
+├── secure_app.py
+├── findings.md
 └── README.md
 ```
 
-## Future Improvements
-Possible improvements for this project:
+---
 
-- Add packet filtering options.
-- Add a graphical user interface (GUI).
-- Export reports in different formats.
-- Add more advanced packet analysis features.
+## Vulnerabilities Identified
 
-## Author
+### 1. Hardcoded Password
 
-Sayed Samy
+**Issue:**
+Sensitive credentials were stored directly inside the source code.
 
-Cybersecurity Student
+**Fix:**
+Used environment variables to store sensitive information securely.
+
+
+### 2. Command Injection
+
+**Issue:**
+User input was executed using subprocess with shell=True.
+
+**Fix:**
+Removed shell=True and implemented command whitelisting.
+
+
+### 3. Unsafe Deserialization
+
+**Issue:**
+Used pickle.load() which can be dangerous with untrusted data.
+
+**Fix:**
+Replaced pickle with JSON-based data handling.
+
+
+### 4. Code Injection
+
+**Issue:**
+Used eval() to execute user input.
+
+**Fix:**
+Replaced eval() with ast.literal_eval().
+
+---
+
+## Security Analysis
+
+Bandit was used to scan the vulnerable application.
+
+Before Fixes:
+
+- High Severity Issues: 1
+- Medium Severity Issues: 2
+- Low Severity Issues: 3
+
+After Fixes:
+
+- High Severity Issues: 0
+- Medium Severity Issues: 0
+- Low Severity Issues: 2
+
+---
+
+## Conclusion
+
+This project demonstrates how secure coding practices and Static Application Security Testing (SAST) tools can help identify and mitigate security vulnerabilities before deployment.
