@@ -9,7 +9,7 @@ This project demonstrates the basic concept of network traffic analysis and pack
 The tool captures live network packets and extracts useful information from them, including packet number, timestamp, and communication protocol.
 
 It helps in understanding how data moves across networks and provides a practical introduction to concepts such as packet analysis, network protocols, and traffic monitoring.
-
+![Sniffer output](screenshots/screenshot1.png)
 ## Features
 - Capture live network packets from the network interface.
 - Analyze captured packets using Scapy.
