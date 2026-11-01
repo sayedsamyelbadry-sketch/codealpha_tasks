@@ -1,0 +1,36 @@
+Phishing Awareness Quiz
+
+Q1: What is the main goal of phishing attacks?
+
+A) Improve system performance
+B) Steal sensitive information
+C) Install updates
+
+Answer: B
+
+
+Q2: Which of the following is a phishing indicator?
+
+A) Suspicious links
+B) Strong password
+C) Software update
+
+Answer: A
+
+
+Q3: What should you do when you receive a suspicious email?
+
+A) Click the link immediately
+B) Verify the sender and avoid suspicious links
+C) Share your password
+
+Answer: B
+
+
+Q4: Which technique do attackers use to manipulate victims?
+
+A) Social Engineering
+B) Encryption
+C) Backup
+
+Answer: A
